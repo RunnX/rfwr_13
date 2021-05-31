@@ -1,6 +1,4 @@
-# rfwr_13
-
-Reducing Friction with RunnX - EE13
+# Reducing Friction with RunnX - EE13
 
 Clone this repo to start, my favorite way is to execute the following in powershell:
 git clone https://github.com/RunnX/rfwr_e13.git
