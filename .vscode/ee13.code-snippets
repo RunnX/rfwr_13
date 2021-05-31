@@ -1,0 +1,59 @@
+{
+
+	"Require xml2js": {
+		"scope": "javascript,typescript",
+		"prefix": "rxml2js",
+		"body": "const xml2js = require('xml2js');",
+		"description": "Add require statement to include xml2js"
+	},
+	"Add main function":{
+		"scope": "javascript,typescript",
+		"prefix": "main",
+		"body": [
+			"const https = require('https');",
+			"",
+			"async function main() {",
+			"  https",
+			"    .get(",
+			"      'https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/tesla?format=xml',",
+			"      (resp) => {",
+			"        let data = '';",
+			"",
+			"        // A chunk of data has been received.",
+			"        resp.on('data', (chunk) => {",
+			"          data += chunk;",
+			"        });",
+			"",
+			"        resp.on('end', () => {",
+			"          console.log(data);",
+			"          //Convert(data);",
+			"        });",
+			"      }",
+			"    )",
+			"    .on('error', (err) => {",
+			"      console.log('Error on get: ' + err.message);",
+			"    });",
+			"}",
+			"",
+			"main().catch((err) => {",
+			"    console.log('Error occurred: ', err);",
+			"})"
+		],
+		"description": "Add the async function main and execution with error logging"
+	},
+	"Convert":{
+		"scope": "javascript,typescript",
+		"prefix": "convert",
+		"body": ["",
+		"function Convert(data) {",
+		"  var parser = new xml2js.Parser({",
+		"    explicitArray: false,",
+		"  });",
+		"  parser.parseString(data, function (err, result) {",
+		"    console.log('\\n');",
+		"    console.log(JSON.stringify(result));",
+		"  });",
+		"}"],
+		"description": "Add the convert function to convert XML to JSON"
+	}
+}
