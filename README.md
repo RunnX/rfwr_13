@@ -67,5 +67,7 @@ node app.js
 ```
 git switch complete
 
+npm install
+
 node app.js
 ```
